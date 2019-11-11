@@ -284,8 +284,6 @@ def train(train_loader, model, criterion, optimizer, epoch, gpu=0, print_freq=10
         if i % print_freq == 0:
             progress.display(i)
 
-        if i==1:
-            break
 
 
 def validate(val_loader, model, criterion, gpu=0, print_freq=100):
@@ -324,9 +322,6 @@ def validate(val_loader, model, criterion, gpu=0, print_freq=100):
 
             if i % print_freq == 0:
                 progress.display(i)
-
-            if i==1:
-                break
 
         # TODO: this should also be done with the ProgressMeter
         print(' * Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f}'

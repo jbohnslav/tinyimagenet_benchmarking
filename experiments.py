@@ -4,8 +4,8 @@ from benchmark_one_epoch import benchmark_one_epoch
 
 def run_experiments(args):
 
-    for imsize in [64,96, 128, 160, 192, 224, 256]:
-        for batch_size in [2, 4, 8, 16, 32, 64, 128, 256, 512]:
+    for imsize in [64, 128, 224, 256]:
+        for batch_size in [32, 64, 128, 256, 512]:
             df = benchmark_one_epoch(args.data, 
                     arch=args.arch, 
                     gpu=args.gpu, 
