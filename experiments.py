@@ -13,6 +13,7 @@ def run_experiments(args):
                     workers=args.workers,
                     imsize=imsize,
                     notes=args.notes)
+    df.to_csv('benchmarks_{}.csv'.format(args.notes))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')

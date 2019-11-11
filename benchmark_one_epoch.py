@@ -21,6 +21,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import torchvision.models as models
 import pandas as pd
+import numpy as np
 
 model_names = sorted(name for name in models.__dict__
     if name.islower() and not name.startswith("__")
@@ -207,14 +208,14 @@ def benchmark_one_epoch(data, arch='resnet50', gpu=0, batch_size=256, workers=8,
             val_time_total = time.perf_counter() - val_t0
         val_images = len(val_loader)*batch_size
 
-        print('Train t: {}s for {} images'.format(train_time_total, train_images))
-        print('Train t/image: {} FPS: {}'.format(train_time_total/train_images, train_images/train_time_total))
-
-        print('Val t: {}s for {} images'.format(val_time_total, val_images))
-        print('Val t/image: {} FPS: {}'.format(val_time_total/val_images, val_images/val_time_total))
-
-
         row_name = 'benchmark_tinyimagenet_size{}_bs{}_{}'.format(imsize, batch_size, notes)
+        print('~~~~~ EXPERIMENT {} ~~~~~'.format(row_name))
+        print('Train t: {:5.5f}s for {:d} images'.format(train_time_total, train_images))
+        print('Train t/image: {:2.5f} FPS: {:5.5f}'.format(train_time_total/train_images, train_images/train_time_total))
+
+        print('Val t: {:5.5f}s for {:d} images'.format(val_time_total, val_images))
+        print('Val t/image: {:2.5f} FPS: {:5.5f}'.format(val_time_total/val_images, val_images/val_time_total))
+
         data = {'experiment': row_name, 
             'train_t':train_time_total, 
             'train_images':train_images,
