@@ -9,7 +9,6 @@ dependencies:
   - cffi
   - cudatoolkit=10.1
   - freetype
-  - icc_rt
   - intel-openmp
   - jpeg
   - libpng
@@ -36,9 +35,7 @@ dependencies:
   - sqlite
   - tk
   - torchvision
-  - vc
   - wheel
-  - wincertstore
   - xz
   - zlib
   - zstd
