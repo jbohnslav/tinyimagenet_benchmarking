@@ -16,7 +16,7 @@ def run_experiments(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
-    parser.add_argument('-d', '--data', 
+    parser.add_argument('data', 
         help='directory with tinyimagenet data')
     parser.add_argument('--arch', type=str, default='resnet50', 
         help='architecture')
